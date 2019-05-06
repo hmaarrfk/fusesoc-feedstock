@@ -1,0 +1,46 @@
+From 421e91d5c485288051faca233d1135538ab870ce Mon Sep 17 00:00:00 2001
+From: GCHQDeveloper992 <48131108+GCHQDeveloper560@users.noreply.github.com>
+Date: Thu, 14 Mar 2019 17:17:29 +0000
+Subject: [PATCH] Avoid yaml.load deprecation warning
+
+Use safe_load to avoid backward compatibility problem with FullLoader
+---
+ fusesoc/capi2/core.py      | 4 ++--
+ fusesoc/capi2/generator.py | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/fusesoc/capi2/core.py b/fusesoc/capi2/core.py
+index d89179cf..4395fe65 100644
+--- a/fusesoc/capi2/core.py
++++ b/fusesoc/capi2/core.py
+@@ -113,7 +113,7 @@ def __init__(self, core_file, cache_root=''):
+         self.core_root = os.path.dirname(core_file)
+ 
+         try:
+-            _root = Root(yaml.load(open(core_file)))
++            _root = Root(yaml.safe_load(open(core_file)))
+         except KeyError as e:
+             raise SyntaxError("Unknown item {}".format(e))
+         except (yaml.scanner.ScannerError, yaml.constructor.ConstructorError) as e:
+@@ -741,7 +741,7 @@ def _generate_classes(j, base_class):
+         generatedClass = type(cls, (base_class,), class_members)
+         globals()[generatedClass.__name__] = generatedClass
+ 
+-capi2_data = yaml.load(description)
++capi2_data = yaml.safe_load(description)
+ 
+ for backend in get_edatools():
+     backend_name = backend.__name__
+diff --git a/fusesoc/capi2/generator.py b/fusesoc/capi2/generator.py
+index 3a101408..b2e43276 100644
+--- a/fusesoc/capi2/generator.py
++++ b/fusesoc/capi2/generator.py
+@@ -7,7 +7,7 @@ class Generator(object):
+     targets    = {}
+     def __init__(self):
+         with open(sys.argv[1]) as f:
+-            data = yaml.load(f)
++            data = yaml.safe_load(f)
+ 
+             self.config     = data.get('parameters')
+             self.files_root = data.get('files_root')
