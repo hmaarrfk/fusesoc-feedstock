@@ -8,10 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c8f6183847622dddea4857cb747c01ae0d8fc233103e05084a971dd0a481b464
-  patches:
-    # These patches have been accepted in the master branch
-    # - remove_jsonschema_dependency.patch
-    # - 249-avoid_yaml_load_deprecation_warning.patch
 
 build:
   number: 0
