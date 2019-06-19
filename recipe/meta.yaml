@@ -1,5 +1,5 @@
 {% set name = "fusesoc" %}
-{% set version = "1.9.1" %}
+{% set version = "1.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 47589cc47583a9d4f0a6f57bd40555f1518ab2317c2526041f3bc0e366317874
-  patches:
-    # These patches have been accepted in the master branch
-    - remove_jsonschema_dependency.patch
-    - 249-avoid_yaml_load_deprecation_warning.patch
+  sha256: c8f6183847622dddea4857cb747c01ae0d8fc233103e05084a971dd0a481b464
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
