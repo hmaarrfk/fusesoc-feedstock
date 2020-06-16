@@ -32,8 +32,8 @@ test:
 
 about:
   home: https://github.com/olofk/fusesoc/
-  license: GPL-3.0
-  license_family: GPL
+  license: BSD-2-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: FuseSoC is a package manager and a set of build tools for FPGA/ASIC development
 
