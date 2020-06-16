@@ -1,5 +1,5 @@
 {% set name = "fusesoc" %}
-{% set version = "1.10" %}
+{% set version = "1.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2d48a4549e57b5dbe46c1dad7d69ce320d2f0f8b480dd3dcd9d2b44f55aea6c5
+  sha256: 9256a1beb54d19a84471566ef972861f7101b4bd27d37e317f6fa5ed731d4a9e
 
 build:
   number: 0
@@ -40,4 +40,4 @@ about:
 extra:
   recipe-maintainers:
     - hmaarrfk
- 
+
