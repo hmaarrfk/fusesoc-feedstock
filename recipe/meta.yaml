@@ -20,7 +20,7 @@ requirements:
     - setuptools_scm
   run:
     - python
-    - edalize >=0.1.6
+    - edalize >=0.2.2
     - ipyxact >=0.2.3
     - pyparsing
     - pyyaml
@@ -40,4 +40,3 @@ about:
 extra:
   recipe-maintainers:
     - hmaarrfk
-
