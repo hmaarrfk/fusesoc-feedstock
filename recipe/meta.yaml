@@ -10,16 +10,17 @@ source:
   sha256: 9256a1beb54d19a84471566ef972861f7101b4bd27d37e317f6fa5ed731d4a9e
 
 build:
+  noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
+    - python >=3
     - pip
     - setuptools_scm
   run:
-    - python
+    - python >=3
     - edalize >=0.2.2
     - ipyxact >=0.2.3
     - pyparsing
